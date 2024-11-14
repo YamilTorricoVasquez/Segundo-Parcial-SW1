@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vista de lista para pagos de mensualidad -->
+    <record id="view_pago_mensualidad_tree" model="ir.ui.view">
+        <field name="name">agenda mensualidad.tree</field>
+        <field name="model">agenda.mensualidad</field>
+        <field name="arch" type="xml">
+            <tree string="Pagos de Mensualidad">
+                <field name="numero_pago"/>
+                <field name="estudiante_id"/>
+                <field name="ci_estudiante"/>
+                <field name="mes"/>
+                <field name="anio"/>
+                <field name="monto"/>
+                <field name="fecha_pago"/>
+                <field name="estado_pago"/>  <!-- Campo estado añadido -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de formulario para pagos de mensualidad -->
+    <record id="view_pago_mensualidad_form" model="ir.ui.view">
+        <field name="name">agenda mensualidad.form</field>
+        <field name="model">agenda.mensualidad</field>
+        <field name="arch" type="xml">
+            <form string="Pago de Mensualidad">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="estudiante_id"/>
+                            <field name="ci_estudiante" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="curso_id" readonly="1"/>
+                            <field name="nivel_id" readonly="1"/>
+                            <field name="paralelo_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="mes"/>
+                        <field name="anio"/>
+                        <field name="monto"/>
+                        <field name="fecha_pago" readonly="1"/>
+                        <field name="estado_pago" readonly="1"/>  <!-- Campo estado añadido -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción para mostrar los pagos de mensualidad -->
+    <record id="action_pago_mensualidad" model="ir.actions.act_window">
+        <field name="name">Pagos de Mensualidad</field>
+        <field name="res_model">agenda.mensualidad</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú para acceder a los pagos de mensualidad -->
+    <menuitem name="Pagos de Mensualidad" id="agenda.menu_1_mensualidad_list" parent="agenda.menu_2" action="action_pago_mensualidad"/>
+</odoo>

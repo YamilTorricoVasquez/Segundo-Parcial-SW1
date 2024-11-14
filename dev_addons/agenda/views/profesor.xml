@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        
+        <record id="view_profesor_form" model="ir.ui.view">
+            <field name="name">agenda profesor form</field>
+            <field name="model">agenda.profesor</field>
+            <field name="arch" type="xml">
+                <form string="Profesor">
+                      <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="ci"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="fecha_nacimiento"/>
+                   <!-- Mostrar los cursos asignados -->
+                    <field name="cursos_niveles_ids"  />
+                </group>
+            </sheet>
+                </form>
+            </field>
+        </record>
+      
+      <record id="view_profesor_tree" model="ir.ui.view">
+        <field name="name">agenda profesor list</field>
+        <field name="model">agenda.profesor</field>
+        <field name="arch" type="xml">
+            <tree string="Profesor">
+            
+                <field name="name"/>
+                <field name="ci"/>
+                <field name="email"/>
+                <field name="phone"/>
+              
+                <field name="fecha_nacimiento"/>
+
+
+                
+            </tree>
+        </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="agenda.action_profesor_window">
+        <field name="name">Registro de profesor</field>
+        <field name="res_model">agenda.profesor</field>
+        <field name="view_mode">tree,form</field>
+        
+      </record>
+      
+      <menuitem name="Registrar profesor" id="agenda.menu_1_profesor_list" parent="agenda.menu_3"
+      action="agenda.action_profesor_window"/>
+    </data>
+</odoo>

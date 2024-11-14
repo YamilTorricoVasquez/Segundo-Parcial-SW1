@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="view_materia_form" model="ir.ui.view">
+            <field name="name">agenda materia form</field>
+            <field name="model">agenda.materia</field>
+            <field name="arch" type="xml">
+                <form string="Materia">
+                    <sheet>
+                        <group>
+                            <!-- <field name="name"/> -->
+                            <field name="name"/>
+                          
+                           
+                         
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <record id="view_materia_tree" model="ir.ui.view">
+            <field name="name">agenda materia list</field>
+            <field name="model">agenda.materia</field>
+            <field name="arch" type="xml">
+                <tree string="Materia">
+                    <!-- <field name="name"/> -->
+                    <field name="name"/>
+                    
+                    
+                     
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="agenda.action_materia_window">
+            <field name="name">Crear materia</field>
+            <field name="res_model">agenda.materia</field>
+            <field name="view_mode">tree,form</field>
+          </record>
+
+          <menuitem name="Crear materias" id="agenda.menu_1_materia_list" parent="agenda.menu_1"
+          action="agenda.action_materia_window"/>
+    </data>
+</odoo>

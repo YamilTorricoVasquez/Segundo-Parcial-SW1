@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="view_curso_form" model="ir.ui.view">
+            <field name="name">agenda curso form</field>
+            <field name="model">agenda.curso</field>
+            <field name="arch" type="xml">
+                <form string="Curso">
+                    <sheet>
+                        <group>
+                            <!-- <field name="name"/> -->
+                            <field name="name"/>
+                          
+                           
+                         
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <record id="view_curso_tree" model="ir.ui.view">
+            <field name="name">agenda curso list</field>
+            <field name="model">agenda.curso</field>
+            <field name="arch" type="xml">
+                <tree string="Curso">
+                    <!-- <field name="name"/> -->
+                    <field name="name"/>
+                    
+                    
+                     
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="agenda.action_curso_window">
+            <field name="name">Crear curso</field>
+            <field name="res_model">agenda.curso</field>
+            <field name="view_mode">tree,form</field>
+          </record>
+
+          <menuitem name="Crear curso" id="agenda.menu_1_curso_list" parent="agenda.menu_1"
+          action="agenda.action_curso_window"/>
+    </data>
+</odoo>

@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <record id="view_comunicado_form" model="ir.ui.view">
+            <field name="name">agenda comunicado form</field>
+            <field name="model">agenda.comunicado</field>
+            <field name="arch" type="xml">
+                <form string="Comunicado">
+                    <sheet>
+                        <group>
+                            <group string="Detalles del Comunicado">
+                                <field name="name" string="Título" required="1"/>
+                                <field name="descripcion_comunicado" string="Descripción" widget="textarea" required="1"/>
+                                <field name="destinatario_ids" string="Roles Destinatarios" widget="many2many_tags"/>
+                            </group>
+                            <group string="Adjuntos y Remitente">
+                                <field name="archivo_adjunto" string="Archivo Adjunto" widget="binary" options="{'filename': 'filename'}"/>
+                                <field name="remitente_id" string="Remitente" readonly="1"/>
+                                <field name="enviar_notificacion" string="Enviar Notificación"/>
+                            </group>
+                            <group string="Filtrado por Estudiantes">
+                                <field name="curso_id" string="Curso"/>
+                                <field name="nivel_id" string="Nivel"/>
+                                <field name="paralelo_id" string="Paralelo"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <record id="view_comunicado_tree" model="ir.ui.view">
+            <field name="name">agenda comunicado list</field>
+            <field name="model">agenda.comunicado</field>
+            <field name="arch" type="xml">
+                <tree string="Comunicados">
+                    <field name="name" string="Título"/>
+                    <field name="descripcion_comunicado" string="Descripción"/>
+                    <field name="destinatario_ids" string="Roles Destinatarios"/>
+                    <field name="fecha_creacion" string="Fecha de Creación"/>
+                    <field name="fecha_envio" string="Fecha de Envío"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="agenda.action_comunicado_window">
+            <field name="name">Crear comunicado</field>
+            <field name="res_model">agenda.comunicado</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Crear comunicados" id="agenda.menu_1_comunicado_list" parent="agenda.menu_2" action="agenda.action_comunicado_window"/>
+    </data>
+</odoo>

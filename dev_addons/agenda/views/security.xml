@@ -1,0 +1,28 @@
+<odoo>
+    <!-- Grupo para Profesores -->
+    <record id="group_profesor" model="res.groups">
+        <field name="name">Profesor</field>
+    </record>
+
+    <!-- Grupo para Estudiantes -->
+    <record id="group_estudiante" model="res.groups">
+        <field name="name">Estudiante</field>
+    </record>
+
+    <!-- Grupo para Padres -->
+    <record id="group_padre" model="res.groups">
+        <field name="name">Padre</field>
+    </record>
+
+    <!-- Grupo para Administradores -->
+    <record id="group_administrador" model="res.groups">
+        <field name="name">Administrador</field>
+      <!--  <field name="category_id" ref="base.module_category_user_type" />  -->
+       <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> <!-- Esto asigna el grupo Internal User -->
+        <!-- Este grupo puede tener más permisos, ya que es un administrador -->
+    </record>
+
+    
+</odoo>
+
+

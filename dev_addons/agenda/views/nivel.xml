@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="view_nivel_form" model="ir.ui.view">
+            <field name="name">agenda nivel form</field>
+            <field name="model">agenda.nivel</field>
+            <field name="arch" type="xml">
+                <form string="Nivel">
+                    <sheet>
+                        <group>
+                            <!-- <field name="name"/> -->
+                            <field name="name"/>
+                          
+                           
+                         
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <record id="view_nivel_tree" model="ir.ui.view">
+            <field name="name">agenda nivel list</field>
+            <field name="model">agenda.nivel</field>
+            <field name="arch" type="xml">
+                <tree string="Nivel">
+                    <!-- <field name="name"/> -->
+                    <field name="name"/>
+                    
+                    
+                     
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="agenda.action_nivel_window">
+            <field name="name">Crear nivel</field>
+            <field name="res_model">agenda.nivel</field>
+            <field name="view_mode">tree,form</field>
+          </record>
+
+          <menuitem name="Crear niveles para los cursos" id="agenda.menu_1_nivel_list" parent="agenda.menu_1"
+          action="agenda.action_nivel_window"/>
+    </data>
+</odoo>

@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="view_paralelo_form" model="ir.ui.view">
+            <field name="name">agenda paralelo form</field>
+            <field name="model">agenda.paralelo</field>
+            <field name="arch" type="xml">
+                <form string="Paralelo">
+                    <sheet>
+                        <group>
+                            <!-- <field name="name"/> -->
+                            <field name="name"/>
+                          
+                           
+                         
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <record id="view_paralelo_tree" model="ir.ui.view">
+            <field name="name">agenda paralelo list</field>
+            <field name="model">agenda.paralelo</field>
+            <field name="arch" type="xml">
+                <tree string="Paralelo">
+                    <!-- <field name="name"/> -->
+                    <field name="name"/>
+                    
+                    
+                     
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="agenda.action_paralelo_window">
+            <field name="name">Crear paralelo</field>
+            <field name="res_model">agenda.paralelo</field>
+            <field name="view_mode">tree,form</field>
+          </record>
+
+          <menuitem name="Crear paralelo para los cursos" id="agenda.menu_1_paralelo_list" parent="agenda.menu_1"
+          action="agenda.action_paralelo_window"/>
+    </data>
+</odoo>

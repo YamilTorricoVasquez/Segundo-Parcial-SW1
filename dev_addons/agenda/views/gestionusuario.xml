@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <!-- Vista de Formulario para Gestión de Usuarios -->
+        <record id="view_gestion_usuario_form" model="ir.ui.view">
+            <field name="name">agenda gestion usuario form</field>
+            <field name="model">agenda.gestion.usuario</field>
+            <field name="arch" type="xml">
+                <form string="Gestión de Usuarios y Roles">
+                    <sheet>
+                        <group>
+                            <!-- Este campo cargará los roles del usuario seleccionado -->
+                            <field name="usuario_id" options="{'no_create': True}"/>
+                            <field name="roles_ids" widget="many2many_tags"/>
+                        </group>
+                          <footer>
+                    <button string="Asignar Roles" type="object" name="assign_roles" class="btn-primary"/>
+                    <button string="Quitar Roles" type="object" name="remove_roles" class="btn-secondary"/>
+                    <button string="Guardar" type="object" name="write" class="btn-primary"/>
+                </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de Árbol para Visualizar Usuarios Existentes -->
+        <record id="view_gestion_usuario_tree" model="ir.ui.view">
+            <field name="name">agenda gestion usuario list</field>
+            <field name="model">agenda.gestion.usuario</field>
+            <field name="arch" type="xml">
+                <tree string="Gestión de Usuarios">
+                    <field name="usuario_id"/>
+                    <field name="roles_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción para Abrir la Vista de Gestión de Usuarios -->
+        <record model="ir.actions.act_window" id="action_gestion_usuario_window">
+            <field name="name">Gestión de Usuarios</field>
+            <field name="res_model">agenda.gestion.usuario</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para Acceder a la Gestión de Usuarios -->
+        <menuitem name="Gestión de Usuarios" id="menu_gestion_usuario" action="action_gestion_usuario_window" parent="agenda.menu_1"/>
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <!-- Plantilla de listado de estudiantes -->
+        <template id="listing_estudiantes">
+            <ul class="student-list">
+                <t t-foreach="objects" t-as="student">
+                    <li class="student-item">
+                        <a t-attf-href="#{ root }/students/#{ student.id }" class="student-link">
+                            <t t-esc="student.name"/> - <t t-esc="student.ci"/>
+                        </a>
+                    </li>
+                </t>
+            </ul>
+        </template>
+
+        <!-- Plantilla de detalles del estudiante -->
+        <template id="object_estudiante">
+            <div class="student-detail">
+                <h1 class="student-title"><t t-esc="object.name"/></h1>
+                <dl class="student-attributes">
+                    <dt class="student-attribute-label">Cédula de Identidad:</dt>
+                    <dd class="student-attribute-value"><t t-esc="object.ci"/></dd>
+                    
+                    <dt class="student-attribute-label">Correo Electrónico:</dt>
+                    <dd class="student-attribute-value"><t t-esc="object.email"/></dd>
+                    
+                    <dt class="student-attribute-label">Teléfono:</dt>
+                    <dd class="student-attribute-value"><t t-esc="object.phone"/></dd>
+                    
+                    <dt class="student-attribute-label">Curso:</dt>
+                    <dd class="student-attribute-value"><t t-esc="object.curso_id.name"/></dd>
+                    
+                    <dt class="student-attribute-label">Nivel Académico:</dt>
+                    <dd class="student-attribute-value"><t t-esc="object.nivel_id.name"/></dd>
+                    
+                    <dt class="student-attribute-label">Paralelo:</dt>
+                    <dd class="student-attribute-value"><t t-esc="object.paralelo_id.name"/></dd>
+                    
+                    <dt class="student-attribute-label">Tutor:</dt>
+                    <dd class="student-attribute-value"><t t-esc="object.tutor_id.name"/></dd>
+                </dl>
+            </div>
+        </template>
+    </data>
+</odoo>

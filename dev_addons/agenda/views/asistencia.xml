@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record id="view_asistencia_form" model="ir.ui.view">
+            <field name="name">agenda asistencia form</field>
+            <field name="model">agenda.asistencia</field>
+            <field name="arch" type="xml">
+                <form string="Asistencia">
+                    <sheet>
+                        <group>
+                            <!-- <field name="name"/> -->
+                            <field name="estudiante_id" readonly="1"/>
+<field name="curso_id" readonly="1"/>
+<field name="nivel_id" readonly="1"/>
+<field name="estado" readonly="1"/>
+<field name="fecha" readonly="1"/>
+
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <record id="view_asistencia_tree" model="ir.ui.view">
+            <field name="name">agenda asistencia list</field>
+            <field name="model">agenda.asistencia</field>
+            <field name="arch" type="xml">
+                <tree string="Asistencia">
+                    <!-- <field name="name"/> -->
+                    <field name="estudiante_id"/>
+                    <field name="profesor_id"/>
+                    <field name="curso_id"/>
+                    <field name="nivel_id"/>
+                            <field name="estado"/>
+                            <field name="fecha"/>
+                     
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="agenda.action_asistencia_window">
+            <field name="name">Crear asistencia</field>
+            <field name="res_model">agenda.asistencia</field>
+            <field name="view_mode">tree,form</field>
+          </record>
+
+          <menuitem name="Lista de asistencia" id="agenda.menu_1_asistencia_list" parent="agenda.menu_2"
+          action="agenda.action_asistencia_window"/>
+    </data>
+</odoo>

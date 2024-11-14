@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        
+        <record id="view_cursonivel_form" model="ir.ui.view">
+            <field name="name">agenda cursonivel form</field>
+            <field name="model">agenda.curso.nivel</field>
+            <field name="arch" type="xml">
+                <form string="CursoNivel">
+                      <sheet>
+                <group>
+                   
+                <field name="curso_id"/>
+                <field name="nivel_id"/>
+                <field name="paralelo_id"/>
+                <!-- Mostrar los cursos asignados 
+                    <field name="materia_id"/>-->
+                    <field name="horario_id"/>
+                    
+                </group>
+            </sheet>
+                </form>
+            </field>
+        </record>
+      
+      <record id="view_cursonivel_tree" model="ir.ui.view">
+        <field name="name">agenda cursonivel list</field>
+        <field name="model">agenda.curso.nivel</field>
+        <field name="arch" type="xml">
+            <tree string="CursoNivel">
+            
+                
+                <field name="curso_id"/>
+                <field name="nivel_id"/>
+                <field name="paralelo_id"/>
+
+
+                
+            </tree>
+        </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="agenda.action_cursonivel_window">
+        <field name="name">Registro de cursonivel</field>
+        <field name="res_model">agenda.curso.nivel</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+      
+      <menuitem name="Asignar al curso, nivel paralelo y horario" id="agenda.menu_1_cursonivel_list" parent="agenda.menu_1"
+      action="agenda.action_cursonivel_window"/>
+    </data>
+</odoo>

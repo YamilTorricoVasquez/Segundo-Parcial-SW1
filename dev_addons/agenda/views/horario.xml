@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <record id="view_horario_form" model="ir.ui.view">
+            <field name="name">agenda horario form</field>
+            <field name="model">agenda.horario</field>
+            <field name="arch" type="xml">
+                <form string="Horario">
+                    <sheet>
+                        <group>
+                            <!-- <field name="name"/> -->
+                            <field name="materia_id"/>
+                           <field name="dia"/>
+                          
+                    <field name="hora_inicio"/>
+                    <field name="hora_fin"/>
+                           
+                         
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <record id="view_horario_tree" model="ir.ui.view">
+            <field name="name">agenda horario list</field>
+            <field name="model">agenda.horario</field>
+            <field name="arch" type="xml">
+                <tree string="Horario">
+                    <!-- <field name="name"/> -->
+                    <field name="materia_id"/>
+                    <field name="dia"/>
+                          
+                    <field name="hora_inicio"/>
+                    <field name="hora_fin"/>
+                  
+                    
+                     
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="agenda.action_horario_window">
+            <field name="name">Crear horario</field>
+            <field name="res_model">agenda.horario</field>
+            <field name="view_mode">tree,form</field>
+          </record>
+
+          <menuitem name="Crear horario" id="agenda.menu_1_horario_list" parent="agenda.menu_1"
+          action="agenda.action_horario_window"/>
+    </data>
+</odoo>

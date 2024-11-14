@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="view_trimestre_form" model="ir.ui.view">
+            <field name="name">agenda trimestre form</field>
+            <field name="model">agenda.trimestre</field>
+            <field name="arch" type="xml">
+                <form string="Trimestre">
+                    <sheet>
+                        <group>
+                            <!-- <field name="name"/> -->
+                            <field name="name"/>
+                            <field name="fecha" string="Fecha de entrega"/>
+                           
+                         
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <record id="view_trimestre_tree" model="ir.ui.view">
+            <field name="name">agenda trimestre list</field>
+            <field name="model">agenda.trimestre</field>
+            <field name="arch" type="xml">
+                <tree string="Trimestre">
+                    <!-- <field name="name"/> -->
+                    <field name="name"/>
+                   <field name="fecha" string="Fecha de entrega"/>
+                    
+                     
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="agenda.action_trimestre_window">
+            <field name="name">Crear trimestre</field>
+            <field name="res_model">agenda.trimestre</field>
+            <field name="view_mode">tree,form</field>
+          </record>
+
+          <menuitem name="Crear trimestres" id="agenda.menu_1_trimestre_list" parent="agenda.menu_1"
+          action="agenda.action_trimestre_window"/>
+    </data>
+</odoo>

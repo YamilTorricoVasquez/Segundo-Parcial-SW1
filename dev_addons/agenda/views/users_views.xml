@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <!-- Formulario para GestionUsuario -->
+        <record id="view_gestion_usuario_form" model="ir.ui.view">
+            <field name="name">gestion.usuario.form</field>
+            <field name="model">agenda.gestion.usuario</field>
+            <field name="arch" type="xml">
+                <form string="Gestión de Usuarios">
+                    <sheet>
+                        <group>
+                            <field name="name" placeholder="Nombre"/>
+                            <field name="email" placeholder="Correo Electrónico"/>
+                            <field name="phone" placeholder="Teléfono"/>
+                            <field name="ci" placeholder="CI"/>
+                            <field name="role_id" placeholder="Seleccione un Rol"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista en lista para GestionUsuario -->
+        <record id="view_gestion_usuario_tree" model="ir.ui.view">
+            <field name="name">gestion.usuario.tree</field>
+            <field name="model">agenda.gestion.usuario</field>
+            <field name="arch" type="xml">
+                <tree string="Gestión de Usuarios">
+                    <field name="name" string="Nombre"/>
+                    <field name="email" string="Correo Electrónico"/>
+                    <field name="phone" string="Teléfono"/>
+                     <field name="user_id" string="Usuario" options="{'no_open': True}"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción para abrir la ventana de Gestión de Usuarios -->
+        <record model="ir.actions.act_window" id="agenda.action_gestion_usuario_window">
+            <field name="name">Gestión de Usuarios</field>
+            <field name="res_model">agenda.gestion.usuario</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para acceder a la vista de Gestión de Usuarios -->
+        <menuitem name="Gestión de Usuarios" id="agenda.menu_gestion_usuario" parent="agenda.menu_2"
+                  action="agenda.action_gestion_usuario_window"/>
+    </data>
+</odoo>

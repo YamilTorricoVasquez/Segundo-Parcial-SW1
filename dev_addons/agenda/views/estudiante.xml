@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+        <!-- Form View: Estudiante -->
+        <record id="view_estudiante_form" model="ir.ui.view">
+            <field name="name">agenda estudiante form</field>
+            <field name="model">agenda.estudiante</field>
+            <field name="arch" type="xml">
+                <form string="Registro de Estudiante" class="oe_form_large">
+                    <sheet>
+                        <group>
+                            <group string="Información Personal">
+                                <field name="name" string="Nombre Completo" placeholder="Ingrese el nombre completo"/>
+                                <field name="ci" string="Cédula de Identidad" placeholder="Ingrese el CI"/>
+                                 <field name="email" placeholder="Ingrese el correo electrónico"/>
+                                <field name="phone" string="Teléfono" placeholder="Ingrese el número de teléfono"/>
+                            </group>
+                            <group string="Información Académica">
+                                <field name="curso_id" string="Curso"/>
+                                <field name="nivel_id" string="Nivel Académico"/>
+                                <field name="paralelo_id" string="Paralelo"/>
+                                <field name="gestion" string="Gestión Académica"/>
+                            </group>
+                            <group string="Datos del Tutor">
+                                <field name="tutor_id" string="Tutor" placeholder="Ingrese el nombre del tutor"/>
+                                 <field name="email_tutor" placeholder="Ingrese el correo electrónico"/>
+                                <field name="ci_tutor" string="CI del Tutor" placeholder="Ingrese el CI del tutor"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+      
+        <!-- Tree View: Estudiante -->
+        <record id="view_estudiante_tree" model="ir.ui.view">
+            <field name="name">agenda estudiante list</field>
+            <field name="model">agenda.estudiante</field>
+            <field name="arch" type="xml">
+                <tree string="Lista de Estudiantes" decoration-info="gestion == '2024'">
+                    <field name="name" string="Nombre"/>
+                    <field name="ci" string="CI"/>
+                    <field name="email" string="Correo Electrónico"/>
+                    <field name="phone" string="Teléfono"/>
+                    <field name="curso_id" string="Curso"/>
+                    <field name="nivel_id" string="Nivel"/>
+                    <field name="paralelo_id" string="Paralelo"/>
+                    <field name="gestion" string="Gestión"/>
+                    <field name="tutor_id" string="Tutor"/>
+                    <field name="ci_tutor" string="CI Tutor"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action: Estudiante Window -->
+        <record model="ir.actions.act_window" id="agenda.action_estudiante_window">
+            <field name="name">Registro de Estudiantes</field>
+            <field name="res_model">agenda.estudiante</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Registre y gestione los datos de los estudiantes aquí.
+                </p>
+            </field>
+        </record>
+      
+        <!-- Menu Item: Estudiantes -->
+        <menuitem name="Registrar estudiante" id="agenda.menu_1_estudiante_list" parent="agenda.menu_3" action="agenda.action_estudiante_window"/>
+    </data>
+</odoo>
